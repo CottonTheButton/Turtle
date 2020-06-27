@@ -34,19 +34,32 @@ try:
         except IndexError:
             print("Syntax: turtles factorial <number that you want to get that factorial of>")
     
+
     elif first_arg == "help":
         commands_list = []
+
 
     elif first_arg == "solve":
 
         operator = sys.argv[2]
         turtle.solve(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5])
 
+
+    elif first_arg == "reddit":
+        turtle.reddit(sys.argv[2])
+
+
+    elif first_arg == "ruqqus":
+        turtle.ruqqus(sys.argv[2])
+
+
     elif first_arg == "talk":
-        print("WIP")
+        raise Exception("WIP!!!")
         
+
     else:
         print("What do you want me to do? >__<")
+
 
 except IndexError:
     print("What do you want me to do? >__<")

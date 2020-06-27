@@ -1,5 +1,5 @@
 #!/usr/local/bin/python3
-import requests, math
+import requests, math, webbrowser
 from bs4 import BeautifulSoup
 
 
@@ -54,6 +54,12 @@ def factorial(num):
 def read(file_name):
     file = open(file_name, 'r')
     print(file.read())
+
+def reddit(subreddit_name):
+    webbrowser.open(f"https://reddit.com/r/{subreddit_name}")
+
+def ruqqus(guild_name):
+    webbrowser.open(f"https://ruqqus.com/+{guild_name}")
 
 def solve(operator, *numbers):
     numbers_list = list(numbers)
