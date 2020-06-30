@@ -8,9 +8,7 @@ def adult_entertainment():
 
 
 def alphabetize(*words):
-    lists = sorted(words)
-    for entry in lists:
-        print(entry)
+    pass
 
 
 def corona():
@@ -51,15 +49,27 @@ def factorial(num):
     print(f"The answer is {math.factorial(int(num))}")
 
 
+def growtopia_status():
+    req = requests.get("https://growtopiagame.com/")
+    source = req.content
+    src = BeautifulSoup(source,'html.parser')
+
+    player_count = src.find(class_="server-status")
+    print(player_count.get_text())
+
+
 def read(file_name):
     file = open(file_name, 'r')
     print(file.read())
 
+
 def reddit(subreddit_name):
     webbrowser.open(f"https://reddit.com/r/{subreddit_name}")
 
+
 def ruqqus(guild_name):
     webbrowser.open(f"https://ruqqus.com/+{guild_name}")
+
 
 def solve(operator, *numbers):
     numbers_list = list(numbers)

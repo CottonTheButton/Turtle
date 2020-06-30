@@ -7,7 +7,11 @@ try:
     first_arg = sys.argv[1]
 
 
-    if first_arg == "corona":
+    if first_arg == "alphabetize":
+        print(turtle.alphabetize())
+
+
+    elif first_arg == "corona":
         print(turtle.corona())
 
         
@@ -34,6 +38,10 @@ try:
         except IndexError:
             print("Syntax: turtles factorial <number that you want to get that factorial of>")
     
+
+    elif first_arg == "growtopia":
+        turtle.growtopia_status()
+
 
     elif first_arg == "help":
         commands_list = []
