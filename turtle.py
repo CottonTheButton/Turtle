@@ -44,18 +44,12 @@ def corona():
     print(f"{serious_cases.get_text()} are in a serious condition.\n")
 
 
+def docs(docs_name, search_entry):
+    if docs_name == "mozilla":
+        webbrowser.open(f"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/{search_entry}")
 
 def factorial(num):
     print(f"The answer is {math.factorial(int(num))}")
-
-
-def growtopia_status():
-    req = requests.get("https://growtopiagame.com/")
-    source = req.content
-    src = BeautifulSoup(source,'html.parser')
-
-    player_count = src.find(class_="server-status")
-    print(player_count.get_text())
 
 
 def read(file_name):
@@ -77,4 +71,30 @@ def solve(operator, *numbers):
     for number in numbers_list:
         sum+= int(number)
 
-    print(f"The sum is {sum}")
+ 
+def stocks(company_name):
+    req = requests.get(f"https://money.cnn.com/quote/quote.html?symb={company_name}")
+    source = req.content
+    src = BeautifulSoup(source, 'html.parser')
+
+    stock_price_broad = src.find(class_="wsod_last")
+    stock_price = stock_price_broad.find("span")
+
+    price_change = src.find(class_="posData")
+
+    cmpny_name = src.find(class_="wsod_fLeft")
+
+    last_updated_potato = src.find(class_="wsod_quoteLabelAsOf") # Start with the sixth index
+    last_updated_pot = last_updated_potato.get_text()
+    last_updated = last_updated_pot[6:]
+
+    print(f"{company_name} Stock Information")
+    print(f"{cmpny_name.get_text()}")
+    print(f"Stock price as of {last_updated}")
+    print(f"${stock_price.get_text()}")
+    print(f"Today's change: ")
+    print(f"{price_change.get_text()}")
+    print("Stock data acquired from https://money.cnn.com (◕‿◕✿)")
+
+def wikipedia():
+    pass

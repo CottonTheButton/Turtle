@@ -11,9 +11,11 @@ try:
         print(turtle.alphabetize())
 
 
-    elif first_arg == "corona":
+    elif first_arg == "corona" or first_arg == "covid":
         print(turtle.corona())
 
+    elif first_arg == "docs":
+        turtle.docs(sys.argv[2], sys.argv[3])
         
     elif first_arg == "factorial":
 
@@ -37,10 +39,6 @@ try:
 
         except IndexError:
             print("Syntax: turtles factorial <number that you want to get that factorial of>")
-    
-
-    elif first_arg == "growtopia":
-        turtle.growtopia_status()
 
 
     elif first_arg == "help":
@@ -64,6 +62,8 @@ try:
     elif first_arg == "talk":
         raise Exception("WIP!!!")
         
+    elif first_arg == "stocks" or first_arg == "stock":
+        turtle.stocks(sys.argv[2])
 
     else:
         print("What do you want me to do? >__<")
